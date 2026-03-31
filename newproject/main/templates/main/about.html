@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About us</title>
-</head>
-<body>
+{% extends 'main/layout_test.html' %}
+
+{% block title %} Сторінка про нас {% endblock %}
+{% block content %}
+
+    That's a dynamic part of our project, we've just made progress by using template manager Jinja!
+
     <h1>About us</h1>
     <p style="font-size: 20px; "><i>We</i> are a <b>team</b> of <em>amateur</em> programmers <sub>who</sub> <sup>are</sup> keen on our job and crave for improving our skills!</p>
-</body>
-</html>
+
+{% endblock %}
+
+

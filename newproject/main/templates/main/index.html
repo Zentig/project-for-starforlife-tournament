@@ -1,15 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Main page </h1>
-    <p> of my first created html file inside django framework! </p>
+{% extends 'main/layout_test.html' %}
 
-</body>
-</html>
+{% block title %} Сторінка про нас {% endblock %}
+{% block content %}
+
+    That's a dynamic part of our project, we've just made a progress by using template manager Jinja!
+
+ <h1> Main page </h1>
+    <p> of my first created html file inside django framework! </p>
+    {% include "main/test.html" %}
+{% endblock %}
