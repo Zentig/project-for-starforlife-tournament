@@ -1,11 +1,12 @@
 {% extends 'main/layout_test.html' %}
 
-{% block title %} Сторінка про нас {% endblock %}
+{% block title %} {{ title }} {% endblock %}
+
 {% block content %}
-
-    That's a dynamic part of our project, we've just made a progress by using template manager Jinja!
-
- <h1> Main page </h1>
-    <p> of my first created html file inside django framework! </p>
-    {% include "main/test.html" %}
+    <div class="features">
+        <h1> {{ title }} </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis inventore minima necessitatibus voluptatem? Architecto dolores explicabo facilis fugit inventore iure minima necessitatibus nihil, saepe sunt tempore ullam, voluptatem. Harum.</p>
+    <button class = "btn btn-warning"> На сторінку про нас </button>
+    </div>
+    <!-- {% include "main/test.html" %} -->
 {% endblock %}
