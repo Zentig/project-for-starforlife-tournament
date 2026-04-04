@@ -4,7 +4,18 @@
 
 {% block content %}
     <div class="features">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis inventore minima necessitatibus voluptatem? Architecto dolores explicabo facilis fugit inventore iure minima necessitatibus nihil, saepe sunt tempore ullam, voluptatem. Harum.</p>
-    <button class = "btn btn-warning"> На сторінку про нас </button>
+        <h1>Новини цього чудового сайтику: </h1>
+
+        {% if news %}
+        {% for el in news %}
+            <div class="alert alert_warning">
+                <h3> {{ el.title }} </h3>
+                <p> {{ el.announcement }} </p>
+                <p> {{ el.date }} </p>
+            </div>
+        {% endfor %}
+        {% else %}
+        <p> Немає записів </p>
+        {% endif %}
     </div>
 {% endblock %}

@@ -64,3 +64,11 @@ main .features {
 main .features h1 {font-size: 50px;}
 
 main .features p { max-width: 300px; margin: 20px auto; }
+
+.alert-warning {
+    float: left;
+    clear: both;
+    width: 35%;
+    margin: 20px 34%;
+    background: #eab250;
+}

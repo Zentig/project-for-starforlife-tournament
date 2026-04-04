@@ -6,3 +6,9 @@ class Articles(models.Model):
     announcement = models.CharField('Анонс', max_length=250)
     full_text = models.TextField('Повний текст статті')
     date = models.DateTimeField('Дата публікації')
+
+    def __str__(self):
+        return f'Новина: {self.title} - Дата: {self.date} -> '
+    class Meta:
+        verbose_name = 'Новина'
+        verbose_name_plural = 'Новини'
