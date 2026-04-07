@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/auth_style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="auth-container">
         <!-- Floating animated background shapes -->
@@ -21,27 +23,41 @@
                 <button class="tab" data-target="register">Register</button>
             </div>
 
+            {% if messages %}
+            <div class="messages" style="margin-bottom: 20px;">
+                {% for message in messages %}
+                <div style="padding: 12px; border-radius: 8px; margin-bottom: 8px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; font-size: 0.9rem;">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
             <!-- Login Form -->
-            <form id="login" class="auth-form active">
+            <form id="login" class="auth-form active" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="login">
                 <div class="form-header">
                     <h2>Welcome Back</h2>
                     <p class="subtitle">Enter your credentials to access your account.</p>
                 </div>
-                
+
                 <div class="input-group">
                     <label for="login-identifier">Username or Email</label>
                     <div class="input-wrapper">
-                        <input type="text" id="login-identifier" name="identifier" required placeholder="Enter username or email">
+                        <input type="text" id="login-identifier" name="identifier" required
+                            placeholder="Enter username or email">
                     </div>
                 </div>
-                
+
                 <div class="input-group">
                     <label for="login-password">Password</label>
                     <div class="input-wrapper">
-                        <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+                        <input type="password" id="login-password" name="password" required
+                            placeholder="Enter your password">
                     </div>
                 </div>
-                
+
                 <div class="form-options">
                     <label class="remember-me">
                         <input type="checkbox" name="remember">
@@ -50,21 +66,24 @@
                     </label>
                     <a href="#" class="forgot-link" id="show-forgot">Forgot Password?</a>
                 </div>
-                
+
                 <button type="submit" class="primary-btn">Sign In</button>
             </form>
 
             <!-- Register Form -->
-            <form id="register" class="auth-form hidden">
+            <form id="register" class="auth-form hidden" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="register">
                 <div class="form-header">
                     <h2>Create Account</h2>
                     <p class="subtitle">Join our platform today.</p>
                 </div>
-                
+
                 <div class="input-group">
                     <label for="reg-username">Username</label>
                     <div class="input-wrapper">
-                        <input type="text" id="reg-username" name="username" required placeholder="Choose a unique username">
+                        <input type="text" id="reg-username" name="username" required
+                            placeholder="Choose a unique username">
                     </div>
                 </div>
 
@@ -74,34 +93,28 @@
                         <input type="email" id="reg-email" name="email" required placeholder="Enter your email address">
                     </div>
                 </div>
-                
-                <div class="input-group">
-                    <label for="reg-role">Role</label>
-                    <div class="input-wrapper">
-                        <select id="reg-role" name="role" required>
-                            <option value="" disabled selected>Select your role...</option>
-                            <option value="user">User</option>
-                            <option value="jury">Jury</option>
-                            <option value="admin">Administrator</option>
-                        </select>
-                    </div>
-                </div>
-                
+
                 <div class="input-group">
                     <label for="reg-password">Password</label>
                     <div class="input-wrapper">
-                        <input type="password" id="reg-password" name="password" required placeholder="Create a strong password">
+                        <input type="password" id="reg-password" name="password" required
+                            placeholder="Create a strong password">
                     </div>
                 </div>
-                
+
                 <button type="submit" class="primary-btn accent">Create Account</button>
             </form>
 
             <!-- Forgot Password Form -->
-            <form id="forgot" class="auth-form hidden">
+            <form id="forgot" class="auth-form hidden" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="forgot">
                 <div class="back-nav">
                     <button type="button" id="back-to-login" class="back-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg>
                         Back to Login
                     </button>
                 </div>
@@ -109,18 +122,20 @@
                     <h2>Restore Access</h2>
                     <p class="subtitle">Enter your email and we'll send a recovery link.</p>
                 </div>
-                
+
                 <div class="input-group">
                     <label for="recover-email">Registered Email</label>
                     <div class="input-wrapper">
-                        <input type="email" id="recover-email" name="email" required placeholder="Enter your registered email">
+                        <input type="email" id="recover-email" name="email" required
+                            placeholder="Enter your registered email">
                     </div>
                 </div>
-                
+
                 <button type="submit" class="primary-btn">Send Recovery Link</button>
             </form>
         </div>
     </div>
     <script src="{% static 'js/auth_script.js' %}"></script>
 </body>
+
 </html>
