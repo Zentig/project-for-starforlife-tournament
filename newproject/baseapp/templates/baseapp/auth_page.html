@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/auth_style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Floating animated background shapes -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+
+        <div class="glass-panel">
+            <div class="auth-tabs" id="auth-tabs">
+                <button class="tab active" data-target="login">Login</button>
+                <button class="tab" data-target="register">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login" class="auth-form active">
+                <div class="form-header">
+                    <h2>Welcome Back</h2>
+                    <p class="subtitle">Enter your credentials to access your account.</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="login-identifier">Username or Email</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="login-identifier" name="identifier" required placeholder="Enter username or email">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-link" id="show-forgot">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="primary-btn">Sign In</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register" class="auth-form hidden">
+                <div class="form-header">
+                    <h2>Create Account</h2>
+                    <p class="subtitle">Join our platform today.</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="reg-username">Username</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="reg-username" name="username" required placeholder="Choose a unique username">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="reg-email" name="email" required placeholder="Enter your email address">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="reg-role">Role</label>
+                    <div class="input-wrapper">
+                        <select id="reg-role" name="role" required>
+                            <option value="" disabled selected>Select your role...</option>
+                            <option value="user">User</option>
+                            <option value="jury">Jury</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="reg-password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="reg-password" name="password" required placeholder="Create a strong password">
+                    </div>
+                </div>
+                
+                <button type="submit" class="primary-btn accent">Create Account</button>
+            </form>
+
+            <!-- Forgot Password Form -->
+            <form id="forgot" class="auth-form hidden">
+                <div class="back-nav">
+                    <button type="button" id="back-to-login" class="back-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        Back to Login
+                    </button>
+                </div>
+                <div class="form-header">
+                    <h2>Restore Access</h2>
+                    <p class="subtitle">Enter your email and we'll send a recovery link.</p>
+                </div>
+                
+                <div class="input-group">
+                    <label for="recover-email">Registered Email</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="recover-email" name="email" required placeholder="Enter your registered email">
+                    </div>
+                </div>
+                
+                <button type="submit" class="primary-btn">Send Recovery Link</button>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'js/auth_script.js' %}"></script>
+</body>
+</html>
